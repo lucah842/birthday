@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Mama</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Hide both horizontal and vertical scrollbars */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        video {
+            position: fixed; /* Use a fixed position for the video */
+            top: 0;
+            left: 0;
+            min-width: 100%; /* Minimum width to cover the entire viewport */
+            min-height: 100%; /* Minimum height to cover the entire viewport */
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        .content {
+            text-align: center;
+            font-family: 'Comfortaa', cursive;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 30px;
+            color: white;
+            position: relative;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 5px;
+            max-width: 80%; /* Limit content width */
+        }
+
+        .textbox {
+            padding: 10px;
+        }
+
+        .rounded-button {
+            background-color: pink;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 10px; /* Adjust the border-radius to control the roundness */
+            cursor: pointer;}
+
+        /* Media Query for smaller screens (e.g., tablets and phones) */
+        @media (max-width: 768px) {
+            .content {
+                font-size: 24px; /* Adjust font size for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop>
+        <source src="./img/131997 (720p).mp4" type="video/mp4">
+    </video>
+    <div class="content">
+        <div class="textbox">
+            <h1>HAPPY BIRTHDAY MAMA</h1>
+            <p>Ich wünsche dir Alles Gute und viel Gesundheit zum 39. Geburtstag!</p>
+            <p>Hier schonmal die Route zum Ziel 🇮🇹</p>
+            <button class="rounded-button" onclick="window.location.href = './geschenk.html';">Drück mal</button>
+        </div>
+    </div>
+</body>
+</html>

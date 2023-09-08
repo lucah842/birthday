@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geschenk</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        video {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        #countdown {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            color: #fff;
+        }
+
+        #content-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #e616ae;
+            z-index: 2;
+            display: none;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #content {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="video-container">
+        <video autoplay muted loop id="background-video">
+            <source src="./img/firework_-_55763 (720p).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div id="countdown">10</div>
+    </div>
+
+    <div id="content-container">
+        <div id="content">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d35346.72074274343!2d10.807790195077892!3d45.8947305041926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478216d064ddabad%3A0x6b1bdbb2c3674ca3!2s38066%20Riva%20del%20Garda%2C%20Trentino%2C%20Italien!5e1!3m2!1sde!2sde!4v1694166496236!5m2!1sde!2sde" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <center style="color: white;">
+                Cara mamma, <br>
+                Ti auguro tutto il meglio e buon compleanno! <br>
+                Ma soprattutto molta salute e relax nel nuovo anno di vita, <br>
+                Per rilassarti correttamente, devi decidere: scegli il numero 1 o il numero 2? <br>
+                Ti amo, il tuo Luca <br> <br> <br>
+            </center>
+            <button id="playStopButton">Drück mich!</button>
+            <audio id="sound" src="sound.mp3"></audio>
+        </div>
+    </div>
+
+    <script>
+        var countdownElement = document.getElementById("countdown");
+        var countdown = 10;
+
+        // Function to update the countdown element
+        function updateCountdown() {
+            countdownElement.textContent = countdown;
+        }
+
+        // Function to start the countdown
+        function startCountdown() {
+            updateCountdown();
+            var countdownInterval = setInterval(function() {
+                countdown--;
+                updateCountdown();
+
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    document.getElementById("video-container").style.display = "none";
+                    document.getElementById("content-container").style.display = "block";
+                }
+            }, 1000); // Update every 1 second
+        }
+
+        // Start the countdown after the video is loaded
+        document.getElementById("background-video").addEventListener("loadeddata", startCountdown);
+
+        var sound = document.getElementById("sound");
+    var playStopButton = document.getElementById("playStopButton");
+    var isPlaying = false;
+
+    playStopButton.addEventListener("click", function () {
+      if (isPlaying) {
+        sound.pause();
+        sound.currentTime = 0;
+        playStopButton.innerHTML = "Play Sound";
+      } else {
+        sound.play();
+        playStopButton.innerHTML = "Stop Sound";
+      }
+      isPlaying = !isPlaying;
+    });
+    </script>
+</body>
+</html>
